@@ -1,1 +1,38 @@
+import time
 
+w=float(input("Введите ширину участка в футах\n"))
+l=float(input("Введите длину участка в футах\n"))
+start=time.time()
+def decorator(function):
+    def wrapper(w, l):
+         print("Была вызвана функция surface")
+         function(w, l)
+    return wrapper
+
+
+def surface(w, l):
+    s=(w*l)/43560
+    return s
+
+surface=decorator(surface)
+surface(w, l)
+print(f"Time: {time.time()-start}")
+print((w*l)/43560)
+
+from math import sqrt
+a=9.8
+d=float(input("Введите высоту в метрах\n"))
+start=time.time()
+def decorator2(d):
+    def wrapper2(d):
+        print("Была вызвана функция speed")
+    return wrapper2
+
+def speed(d):
+    vf = sqrt(0**2+2*a*d)
+    return vf
+
+speed=decorator2(speed)
+speed(d)
+print(f"Time: {time.time()-start}")
+print(sqrt(0**2+2*a*d))
