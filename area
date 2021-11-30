@@ -1,0 +1,4 @@
+width = float(input("Введите ширину участка в футах\n"))
+length = float(input("Введите длину участка в футах\n"))
+SQFT_PER_ACRE = (width*length)/43560
+print("Площадь в акрах =", SQFT_PER_ACRE)
