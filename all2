@@ -1,0 +1,34 @@
+import time
+
+w=float(input("Введите ширину участка в футах\n"))
+l=float(input("Введите длину участка в футах\n"))
+def perf_time(func):
+    def wrapper(*args, **kwargs):
+        print(f"Была вызвана функция {func.__name__}")
+        start = time.time()
+        func(*args, **kwargs)
+        end = time.time()
+        print(f"Время выполнения функции: {end - start} секунд")
+    return wrapper
+
+
+@perf_time
+def surface(w, l):
+    s=(w*l)/43560
+    print (s)
+    return s
+    
+from math import sqrt
+a=9.8
+d=float(input("Введите высоту в метрах\n"))
+
+@perf_time
+def speed(d):
+    vf = sqrt(0**2+2*a*d)
+    print (vf)
+    return vf
+
+
+if __name__ == '__main__':
+    surface(w, l)
+    speed(d)
